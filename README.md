@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Job-Portal
 
 The online job portal application allows job seekers and recruiters to connect.The application provides the ability for job seekers to create their accounts, upload their profile and resume, search for jobs, apply for jobs, view different job openings. The application provides the ability for companies to create their accounts, search candidates, create job postings, and view candidates applications.
@@ -140,3 +141,7 @@ Some Validations Added By Gunesh Shanbhag (gshanbhag525)
 
 # Free Git-Training for Newbies
 https://try.github.io/levels/1/challenges/1
+=======
+# E-rozgar-portal
+design and develop the web portal for online hackathon
+>>>>>>> 66f9a37bda325804fad52031f58381c2db87e51f
