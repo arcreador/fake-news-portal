@@ -7,7 +7,6 @@ if(empty($_SESSION['id_admin'])) {
 	exit();
 }
 
-
 require_once("../db.php");
 
 if(isset($_GET)) {

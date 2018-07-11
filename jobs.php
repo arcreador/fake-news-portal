@@ -47,7 +47,7 @@ require_once("db.php");
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>J</b>P</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b></b> Portal</span>
+      <span class="logo-lg"><b>E-rozgar</b> Portal</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -181,7 +181,7 @@ require_once("db.php");
 
   <footer class="main-footer" style="margin-left: 0px;">
     <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">E-Rozgar Portal</a>.</strong> All rights
+      <strong>Designed and Developed by <b>Team Code Booster</b><a href="#">E-Rozgar Portal</a>.</strong> All rights
     reserved.
     </div>
   </footer>

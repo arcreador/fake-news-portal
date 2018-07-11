@@ -17,7 +17,7 @@ if(isset($_POST)) {
 	$password = base64_encode(strrev(md5($password)));
 
 	//sql query to check company login
-	$sql = "SELECT id_company, companyname, email, active FROM company WHERE email='$email' AND password='$password'";
+	$sql = "SELECT id_company, name, email, active FROM company WHERE email='$email' AND password='$password'";
 	$result = $conn->query($sql);
 
 	//if company table has this this login details
@@ -36,7 +36,7 @@ if(isset($_POST)) {
 			} else if($row['active'] == '1') {
 				// active 1 means admin has approved account.
 				//Set some session variables for easy reference
-				$_SESSION['name'] = $row['companyname'];
+				$_SESSION['name'] = $row['name'];
 				$_SESSION['id_company'] = $row['id_company'];
 
 				//Redirect them to company dashboard once logged in successfully

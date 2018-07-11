@@ -47,7 +47,7 @@ require_once("db.php");
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>J</b>P</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>E-rojgar</b> Portal</span>
+      <span class="logo-lg"><b>E-Rozgar</b> Portal</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -345,11 +345,11 @@ require_once("db.php");
             <img src="img/browse.jpg" class="img-responsive">
           </div>
           <div class="col-md-6 about-text margin-bottom-20">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing <p>The online E-Rozgar portal application allows job seekers and recruiters to connect.The application provides the ability for job seekers to create their accounts, upload their profile and resume, search for jobs, apply for jobs, view different job openings. The application provides the ability for companies to create their accounts, search candidates, create job postings, and view candidates applications.
+            <p>One portal had All Solution <p>The online E-Rozgar portal application allows job seekers and recruiters to connect.The application provides the ability for job seekers to create their accounts, upload their profile and resume, search for jobs, apply for jobs, view different job openings. The application provides the ability for companies to create their accounts, search candidates, create job postings, and view candidates applications.
             </p>
             <p>
-              This website is used to provide a platform for potential candidates to get their dream job and excel in yheir career.
-              This site can be used as a paving path for both companies and job-seekers for a better life .
+              This webs portal is used to provide a platform for potential candidates to get their dream job in government sector and excel in their career.
+              This site can be used as a paving path for both organization company and job-seekers for a better life .
             </p>
           </div>
         </div>
@@ -361,7 +361,7 @@ require_once("db.php");
 
   <footer class="main-footer" style="margin-left: 0px;">
     <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">E-Rozgar Portal</a>.</strong> All rights
+      <strong>Designed and Developed by <b>Team Code Booster</b><a href="#">E-Rozgar Portal</a>.</strong> All rights
     reserved.
     </div>
   </footer>

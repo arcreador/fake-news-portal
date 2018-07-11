@@ -17,18 +17,26 @@ if(isset($_POST)) {
 	// New way using prepared statements. This is safe from SQL INJECTION. Should consider to update to this method when many people are using this method.
 
 
+	
 
-	$stmt = $conn->prepare("INSERT INTO job_post(id_company, jobtitle, description, minimumsalary, maximumsalary, experience, qualification) VALUES (?,?, ?, ?, ?, ?, ?)");
+	
+	//var_dump($stmt);
+	//exit();
+	$fakenewstitle = $_POST['fakenewstitle'];
+	$aboutfake = $_POST['aboutfake'];
 
-	$stmt->bind_param("issssss", $_SESSION['id_company'], $jobtitle, $description, $minimumsalary, $maximumsalary, $experience, $qualification);
+	$fakenewstitle = mysqli_real_escape_string($conn, $_POST['fakenewstitle']);
+	$aboutfake = mysqli_real_escape_string($conn, $_POST['aboutfake']);
 
-	$jobtitle = mysqli_real_escape_string($conn, $_POST['jobtitle']);
-	$description = mysqli_real_escape_string($conn, $_POST['description']);
-	$minimumsalary = mysqli_real_escape_string($conn, $_POST['minimumsalary']);
-	$maximumsalary = mysqli_real_escape_string($conn, $_POST['maximumsalary']);
-	$experience = mysqli_real_escape_string($conn, $_POST['experience']);
-	$qualification = mysqli_real_escape_string($conn, $_POST['qualification']);
+	$stmt = $conn->prepare("INSERT INTO job_post(id_company, fakenewstitle, aboutfake) VALUES (?, ?, ?)");
 
+	$stmt->bind_param("iss", $_SESSION['id_company'], $fakenewstitle, $aboutfake);
+	
+
+	/*
+	$id_company = $_SESSION['id_company'];
+	$query = "INSERT INTO job_post(id_company,fakenewstitle,aboutfake) VALUES('$id_company','$fakenewstitle','$aboutfake')";
+	*/
 
 	if($stmt->execute()) {
 		//If data Inserted successfully then redirect to dashboard
@@ -41,12 +49,9 @@ if(isset($_POST)) {
 	}
 
 	$stmt->close();
-
 	//THIS IS NOT SAFE FROM SQL INJECTION BUT OK TO USE WITH SMALL TO MEDIUM SIZE AUDIENCE
-
 	//Insert Job Post Query 
 	// $sql = "INSERT INTO job_post(id_company, jobtitle, description, minimumsalary, maximumsalary, experience, qualification) VALUES ('$_SESSION[id_company]','$jobtitle', '$description', '$minimumsalary', '$maximumsalary', '$experience', '$qualification')";
-
 	// if($conn->query($sql)===TRUE) {
 	// 	//If data Inserted successfully then redirect to dashboard
 	// 	$_SESSION['jobPostSuccess'] = true;
@@ -56,8 +61,8 @@ if(isset($_POST)) {
 	// 	//If data failed to insert then show that error. Note: This condition should not come unless we as a developer make mistake or someone tries to hack their way in and mess up :D
 	// 	echo "Error " . $sql . "<br>" . $conn->error;
 	// }
-
 	//Close database connection. Not compulsory but good practice.
+
 	$conn->close();
 
 } else {

@@ -10,18 +10,14 @@ require_once("db.php");
 if(isset($_POST)) {
 
 	//Escape Special Characters In String First
-	$companyname = mysqli_real_escape_string($conn, $_POST['companyname']);
+	$name = mysqli_real_escape_string($conn, $_POST['name']);
 	$contactno = mysqli_real_escape_string($conn, $_POST['contactno']);
-	$website = mysqli_real_escape_string($conn, $_POST['website']);
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
 	$password = mysqli_real_escape_string($conn, $_POST['password']);
 
 	$country = mysqli_real_escape_string($conn, $_POST['country']);
 	$state = mysqli_real_escape_string($conn, $_POST['state']);
 	$city = mysqli_real_escape_string($conn, $_POST['city']);
-
-	$aboutme = mysqli_real_escape_string($conn, $_POST['aboutme']);
-	$name = mysqli_real_escape_string($conn, $_POST['name']);
 
 	//Encrypt Password
 	$password = base64_encode(strrev(md5($password)));
@@ -86,7 +82,7 @@ if(isset($_POST)) {
 		}
 
 		//sql new registration insert query
-		$sql = "INSERT INTO company(name, companyname, country, state, city, contactno, website, email, password, aboutme, logo) VALUES ('$name', '$companyname', '$country', '$state', '$city', '$contactno', '$website', '$email', '$password', '$aboutme', '$file')";
+		$sql = "INSERT INTO company(name, contactno, email, password, country, state, city, logo) VALUES ('$name', '$contactno', '$email', '$password', '$country', '$state', '$city', '$file')";
 
 		if($conn->query($sql)===TRUE) {
 

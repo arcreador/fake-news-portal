@@ -16,7 +16,7 @@ require_once("../db.php");
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Job Portal</title>
+  <title>E-Rozgar Portal</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -57,7 +57,7 @@ require_once("../db.php");
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>J</b>P</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Job</b> Portal</span>
+      <span class="logo-lg"><b>E-Rozgar</b> Portal</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -86,9 +86,9 @@ require_once("../db.php");
                 <ul class="nav nav-pills nav-stacked">
                   <li><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                   <li><a href="edit-company.php"><i class="fa fa-tv"></i> My Company</a></li>
-                  <li class="active"><a href="create-job-post.php"><i class="fa fa-file-o"></i> Create Job Post</a></li>
-                  <li><a href="my-job-post.php"><i class="fa fa-file-o"></i> My Job Post</a></li>
-                  <li><a href="job-applications.php"><i class="fa fa-file-o"></i> Job Application</a></li>
+                  <li class="active"><a href="create-E-Rozgar-post.php"><i class="fa fa-file-o"></i>Upload Fake News</a></li>
+                  <li><a href="my-job-post.php"><i class="fa fa-file-o"></i> Checke your Post</a></li>
+                  <li><a href="job-applications.php"><i class="fa fa-file-o"></i> E-Rozgar Application</a></li>
                   <li><a href="mailbox.php"><i class="fa fa-envelope"></i> Mailbox</a></li>
                   <li><a href="settings.php"><i class="fa fa-gear"></i> Settings</a></li>
                   <li><a href="resume-database.php"><i class="fa fa-user"></i> Resume Database</a></li>
@@ -98,27 +98,15 @@ require_once("../db.php");
             </div>
           </div>
           <div class="col-md-9 bg-white padding-2">
-            <h2><i>Create Job Post</i></h2>
+            <h2><i>Create About Fake News Post</i></h2>
             <div class="row">
               <form method="post" action="addpost.php">
                 <div class="col-md-12 latest-job ">
                   <div class="form-group">
-                    <input class="form-control input-lg" type="text" id="jobtitle" name="jobtitle" placeholder="Job Title">
+                    <input class="form-control input-lg" type="text" id="jobtitle" name="fakenewstitle" placeholder="Fake News Title">
                   </div>
                   <div class="form-group">
-                    <textarea class="form-control input-lg" id="description" name="description" placeholder="Job Description"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <input type="number" class="form-control  input-lg" id="minimumsalary" min="1000" autocomplete="off" name="minimumsalary" placeholder="Minimum Salary" required="">
-                  </div>
-                  <div class="form-group">
-                    <input type="number" class="form-control  input-lg" id="maximumsalary" name="maximumsalary" placeholder="Maximum Salary" required="">
-                  </div>
-                  <div class="form-group">
-                <input type="number" class="form-control  input-lg" id="experience" autocomplete="off" name="experience" placeholder="Experience (in Years) Required" required="">
-                  </div>
-                  <div class="form-group">
-                    <input type="text" class="form-control  input-lg" id="qualification" name="qualification" placeholder="Qualification Required" required="">
+                    <textarea class="form-control input-lg" rows="10" id="aboutme" name="aboutfake" placeholder="Text about the fake news*" required></textarea>
                   </div>
                   <div class="form-group">
                     <button type="submit" class="btn btn-flat btn-success">Create</button>
@@ -139,7 +127,7 @@ require_once("../db.php");
 
   <footer class="main-footer" style="margin-left: 0px;">
     <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
+      <strong>Designed and Developed by <b>Team Code Booster</b><a href="#">E-Rozgar Portal</a>.</strong> All rights
     reserved.
     </div>
   </footer>

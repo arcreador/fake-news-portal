@@ -15,12 +15,10 @@ require_once("../db.php");
 if(isset($_POST)) {
 
 	//Escape Special Characters
-	$companyname = mysqli_real_escape_string($conn, $_POST['companyname']);
-	$website = mysqli_real_escape_string($conn, $_POST['website']);
+	$companyname = mysqli_real_escape_string($conn, $_POST['name']);
 	$city = mysqli_real_escape_string($conn, $_POST['city']);
 	$state = mysqli_real_escape_string($conn, $_POST['state']);
 	$contactno = mysqli_real_escape_string($conn, $_POST['contactno']);
-	$aboutme = mysqli_real_escape_string($conn, $_POST['aboutme']);
 
 	$uploadOk = true;
 
@@ -63,7 +61,7 @@ if(isset($_POST)) {
 	
 
 	//Update User Details Query
-	$sql = "UPDATE company SET companyname='$companyname', website='$website', city='$city', state='$state', contactno='$contactno', aboutme='$aboutme'";
+	$sql = "UPDATE company SET name='$name', city='$city', state='$state', contactno='$contactno'";
 
 	if($uploadOk == true) {
 		$sql = $sql . ", logo='$file'";
@@ -72,7 +70,7 @@ if(isset($_POST)) {
 	$sql = $sql . " WHERE id_company='$_SESSION[id_company]'";
 
 	if($conn->query($sql) === TRUE) {
-		$_SESSION['name'] = $companyname;
+		$_SESSION['name'] = $name;
 		//If data Updated successfully then redirect to dashboard
 		header("Location: index.php");
 		exit();
