@@ -10,45 +10,32 @@ require_once("db.php");
 if(isset($_POST)) {
 
 	//Escape Special Characters in String
-	$email = mysqli_real_escape_string($conn, $_POST['email']);
+	$username = mysqli_real_escape_string($conn, $_POST['username']);
+
 	$password = mysqli_real_escape_string($conn, $_POST['password']);
 
 	//Encrypt Password
 	$password = base64_encode(strrev(md5($password)));
 
 	//sql query to check user login
-	$sql = "SELECT id_user, firstname, lastname, email, active FROM users WHERE email='$email' AND password='$password'";
+	$sql = "SELECT username,password FROM admin";
 	$result = $conn->query($sql);
 
 	//if user table has this this login details
 	if($result->num_rows > 0) {
 		//output data
 		while($row = $result->fetch_assoc()) {
+			//Set some session variables for easy reference
 
-			if($row['active'] == '0') {
-				$_SESSION['loginActiveError'] = "Your Account Is Not Active. Check Your Email.";
-		 		header("Location: login-candidates.php");
+			$_SESSION['name'] = $row['username'];
+			
+			$_SESSION['id_admin'] = $row['id_admin'];
+
+			if($row['password']!=$password) {
+				header("Location: index.php");
 				exit();
-			} else if($row['active'] == '1') { 
-
-				//Set some session variables for easy reference
-				$_SESSION['name'] = $row['firstname'] . " " . $row['lastname'];
-				$_SESSION['id_user'] = $row['id_user'];
-
-				if(isset($_SESSION['callFrom'])) {
-					$location = $_SESSION['callFrom'];
-					unset($_SESSION['callFrom']);
-					
-					header("Location: " . $location);
-					exit();
-				} else {
-					header("Location: user/index.php");
-					exit();
-				}
-			} else if($row['active'] == '2') { 
-
-				$_SESSION['loginActiveError'] = "Your Account Is Deactivated. Contact Admin To Reactivate.";
-		 		header("Location: login-candidates.php");
+			} else {
+				header("Location: admin/index.php");
 				exit();
 			}
 

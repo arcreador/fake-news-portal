@@ -95,7 +95,7 @@ require_once("db.php");
    <section class="content-header">
       <div class="container">
         <div class="row latest-job margin-top-50 margin-bottom-20 bg-white">
-          <h1 class="text-center margin-bottom-20">CREATE COMPANY PROFILE</h1>
+          <h1 class="text-center margin-bottom-20">CREATE USER PROFILE</h1>
           <form method="post" id="registerCompanies" action="addcompany.php" enctype="multipart/form-data">
             <div class="col-md-6 latest-job ">
               <div class="form-group">
@@ -163,12 +163,12 @@ require_once("db.php");
                   <option selected="">Select City</option>
                 </select>
               </div>
-              <div class="form-group">
+             <!-- <div class="form-group">
                 <label>Attach Company Logo</label>
                 <input type="file" name="image" class="form-control input-lg" required>
                 <div class="form-group checkbox">
                 <label><input type="checkbox" required> I accept terms & conditions</label>
-              </div>
+              </div>-->
               <div class="form-group">
                 <button type="submit" class="btn btn-flat btn-success">Register</button>
               </div>

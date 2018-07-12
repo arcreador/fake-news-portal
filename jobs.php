@@ -12,7 +12,7 @@ require_once("db.php");
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>E-Rozgar Portal</title>
+  <title>Fake News Portal</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -47,7 +47,7 @@ require_once("db.php");
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>J</b>P</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>E-rozgar</b> Portal</span>
+      <span class="logo-lg"><b>FAKE</b> NEWS</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -92,7 +92,7 @@ require_once("db.php");
       <div class="container">
         <div class="row">
           <div class="col-md-12 latest-job margin-top-50 margin-bottom-20">
-          <h1 class="text-center">Latest Jobs</h1>  
+          <h1 class="text-center">Latest Fake News</h1>  
             <div class="input-group input-group-lg">
                 <input type="text" id="searchBar" class="form-control" placeholder="Search job">
                 <span class="input-group-btn">
@@ -126,7 +126,7 @@ require_once("db.php");
                     </ul>
                   </li>
                   <li class="treeview menu-open">
-                    <a href="#"><i class="fa fa-plane text-red"></i> Experience <span class="pull-right"><i class="fa fa-angle-down pull-right"></i></span></a>
+                    <a href="#"><i class="fa fa-plane text-red"></i> year <span class="pull-right"><i class="fa fa-angle-down pull-right"></i></span></a>
                     <ul class="treeview-menu">
                       <li><a href="" class="experienceSearch" data-target='0'><i class="fa fa-circle-o text-yellow"></i> > Fresher</a></li>
                       <li><a href="" class="experienceSearch" data-target='1'><i class="fa fa-circle-o text-yellow"></i> > 1 Years</a></li>

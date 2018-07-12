@@ -85,7 +85,7 @@ require_once("db.php");
         <div class="row">          
           <div class="col-md-9 bg-white padding-2">
             <div class="pull-left">
-              <h2><b><i><?php echo $row['jobtitle']; ?></i></b></h2>
+              <h2><b><i><?php echo $row['fakenewstitle']; ?></i></b></h2>
             </div>
             <div class="pull-right">
               <a href="jobs.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a>
@@ -96,7 +96,7 @@ require_once("db.php");
               <p><span class="margin-right-10"><i class="fa fa-location-arrow text-green"></i> <?php echo $row['city']; ?></span> <i class="fa fa-calendar text-green"></i> <?php echo date("d-M-Y", strtotime($row['createdat'])); ?></p>              
             </div>
             <div>
-              <?php echo stripcslashes($row['description']); ?>
+              <?php echo stripcslashes($row['aboutfake']); ?>
             </div>
             <?php 
             if(isset($_SESSION["id_user"]) && empty($_SESSION['companyLogged'])) { ?>

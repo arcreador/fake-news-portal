@@ -29,11 +29,11 @@ if(isset($_POST)) {
 	//if email not found then we can insert new data
 	if($result->num_rows == 0) {
 
-			//This variable is used to catch errors doing upload process. False means there is some error and we need to notify that user.
+/*			//This variable is used to catch errors doing upload process. False means there is some error and we need to notify that user.
 		$uploadOk = true;
 
 		//Folder where you want to save your image. THIS FOLDER MUST BE CREATED BEFORE TRYING
-		$folder_dir = "uploads/logo/";
+		$folder_dir = "uploads/img/";
 
 		//Getting Basename of file. So if your file location is Documents/New Folder/myResume.pdf then base name will return myResume.pdf
 		$base = basename($_FILES['image']['name']); 
@@ -79,10 +79,10 @@ if(isset($_POST)) {
 		if($uploadOk == false) {
 			header("Location: register-company.php");
 			exit();
-		}
+		}*/
 
 		//sql new registration insert query
-		$sql = "INSERT INTO company(name, contactno, email, password, country, state, city, logo) VALUES ('$name', '$contactno', '$email', '$password', '$country', '$state', '$city', '$file')";
+		$sql = "INSERT INTO company(name, contactno, email, password, country, state, city) VALUES ('$name', '$contactno', '$email', '$password', '$country', '$state', '$city')";
 
 		if($conn->query($sql)===TRUE) {
 

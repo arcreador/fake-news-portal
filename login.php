@@ -99,9 +99,9 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
           <div class="col-md-6 latest-job ">
             <div class="small-box bg-yellow padding-5">
               <div class="inner">
-                <h3 class="text-center">Candidates Login</h3>
+                <h3 class="text-center">Admin Login</h3>
               </div>
-              <a href="login-candidates.php" class="small-box-footer">
+              <a href="admin/index.php" class="small-box-footer">
                 Login <i class="fa fa-arrow-circle-right"></i>
               </a>
             </div>
@@ -109,7 +109,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
           <div class="col-md-6 latest-job ">
             <div class="small-box bg-red padding-5">
               <div class="inner">
-                <h3 class="text-center">Company Login</h3>
+                <h3 class="text-center">User Login</h3>
               </div>
               <a href="login-company.php" class="small-box-footer">
                 Login <i class="fa fa-arrow-circle-right"></i>
