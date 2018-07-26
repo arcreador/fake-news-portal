@@ -2,7 +2,7 @@
 
 session_start();
 
-if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) { 
+if(isset($_SESSION['id_user'])) { 
   header("Location: index.php");
   exit();
 }
@@ -13,7 +13,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>E-Rozgar Portal</title>
+  <title>Fake News Portal</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -41,94 +41,78 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 <body class="hold-transition skin-green sidebar-mini">
 <div class="wrapper">
 
-  <header class="main-header">
+<header class="main-header">
 
-    <!-- Logo -->
-    <a href="index.php" class="logo logo-bg">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>J</b>P</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>E-rozgar</b> Portal</span>
-    </a>
+<!-- Logo -->
+<a href="index.php" class="logo logo-bg">
+  <!-- mini logo for sidebar mini 50x50 pixels -->
+  <span class="logo-mini"><b>J</b>P</span>
+  <!-- logo for regular state and mobile devices -->
+  <span class="logo-lg"><b>E-rozgar</b> Portal</span>
+</a>
 
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <li>
-            <a href="jobs.php">Jobs</a>
-          </li>
-          <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
-          <li>
-            <a href="login.php">Login</a>
-          </li>
-          <li>
-            <a href="sign-up.php">Sign Up</a>
-          </li>  
-          <?php } else { 
+<!-- Header Navbar: style can be found in header.less -->
+<nav class="navbar navbar-static-top">
+  <!-- Navbar Right Menu -->
+  <div class="navbar-custom-menu">
+    <ul class="nav navbar-nav">
+      <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
+      <li>
+        <a href="login.php">Login</a>
+      </li>
+      <li>
+        <a href="sign-up.php">Sign Up</a>
+      </li>  
+      <?php } else { 
 
-            if(isset($_SESSION['id_user'])) { 
-          ?>        
-          <li>
-            <a href="user/index.php">Dashboard</a>
-          </li>
-          <?php
-          } else if(isset($_SESSION['id_company'])) { 
-          ?>        
-          <li>
-            <a href="company/index.php">Dashboard</a>
-          </li>
-          <?php } ?>
-          <li>
-            <a href="logout.php">Logout</a>
-          </li>
-          <?php } ?>          
-        </ul>
-      </div>
-    </nav>
-  </header>
+        if(isset($_SESSION['id_user'])) { 
+      ?>        
+      <li>
+        <a href="user/index.php">Dashboard</a>
+      </li>
+      <?php
+      } else if(isset($_SESSION['id_company'])) { 
+      ?>        
+      <li>
+        <a href="user/index.php">Dashboard</a>
+      </li>
+      <?php } ?>
+      <li>
+        <a href="logout.php">Logout</a>
+      </li>
+      <?php } ?>          
+    </ul>
+  </div>
+</nav>
+</header>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="margin-left: 0px;">
 
-    <section class="content-header">
-      <div class="container">
-        <div class="row latest-job margin-top-50 margin-bottom-20">
-          <h1 class="text-center margin-bottom-20">Sign Up</h1>
-          <div class="col-md-6 latest-job ">
-            <div class="small-box bg-yellow padding-5">
-              <div class="inner">
-                <h3 class="text-center">Admin Login</h3>
-              </div>
-              <a href="admin/index.php" class="small-box-footer">
-                Login <i class="fa fa-arrow-circle-right"></i>
-              </a>
-            </div>
+<section class="content-header">
+  <div class="container">
+    <div class="row latest-job margin-top-50 margin-bottom-20">
+      <div class="col-md-12 latest-job ">
+        <div class="small-box bg-red padding-5">
+          <div class="inner">
+            <h3 class="text-center">User Login</h3>
           </div>
-          <div class="col-md-6 latest-job ">
-            <div class="small-box bg-red padding-5">
-              <div class="inner">
-                <h3 class="text-center">User Login</h3>
-              </div>
-              <a href="login-company.php" class="small-box-footer">
-                Login <i class="fa fa-arrow-circle-right"></i>
-              </a>
-            </div>
-          </div>
+          <a href="login-user.php" class="small-box-footer">
+            Login <i class="fa fa-arrow-circle-right"></i>
+          </a>
         </div>
       </div>
-    </section>    
-
+    </div>
   </div>
+</section>    
+
+</div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer" style="margin-left: 0px;">
-    <div class="text-center">
-      <strong>Designed and Developed by <b>Team Code Booster </b><a href="#">E-rozgar Portal</a>.</strong> All rights
-    reserved.
-    </div>
-  </footer>
+  <?php
+    require_once("user/modules/footer.php");
+  ?>
+  
 
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed

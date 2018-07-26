@@ -1,3 +1,15 @@
+.main-header .navbar{
+	margin-left: 0px ;
+}
+.text-white{
+	color: white;
+	padding-top: 4em;
+	margin-top: 8em;
+}
+.nav-spacer{
+	margin-left:2em;
+	margin-top:8em;
+}
 .bg-main {
 	background: linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../img/job-search.jpg) no-repeat center center fixed !important; 
 	-webkit-background-size: cover;
@@ -85,4 +97,23 @@
 
 .hide-me {
 	display: none;
+}
+
+
+.main-header{
+	background-color: skyblue;
+
+}
+
+.main-header{
+	background-color: #507f92;
+	max-height: 175px;
+	/* height:100%; */
+}
+.myClass {
+	font-family: verdana; 
+	font-size: 16px; 
+	font-weight: normal;  
+	color: black;
+	line-height: 30px;
 }

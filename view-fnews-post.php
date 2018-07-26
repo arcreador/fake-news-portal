@@ -1,12 +1,11 @@
-<?php 
+<?php
 
+//To Handle Session Variables on This Page
 session_start();
 
-if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) { 
-  header("Location: index.php");
-  exit();
-}
 
+//Including Database Connection From db.php file to avoid rewriting in all files
+require_once("db.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,67 +55,86 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
           <li>
             <a href="login.php">Login</a>
           </li>
           <li>
             <a href="register-user.php">Sign Up</a>
-          </li>  
-          <?php } else { 
-
-            if(isset($_SESSION['id_user'])) { 
-          ?>        
-          <li>
-            <a href="user/index.php">Dashboard</a>
-          </li>
-          <?php
-          } else if(isset($_SESSION['id_company'])) { 
-          ?>        
-          <li>
-            <a href="user/index.php">Dashboard</a>
-          </li>
-          <?php } ?>
-          <li>
-            <a href="logout.php">Logout</a>
-          </li>
-          <?php } ?>          
+          </li>          
         </ul>
       </div>
     </nav>
   </header>
 
-  <!-- Content Wrapper. Contains page content -->
+
+
   <div class="content-wrapper" style="margin-left: 0px;">
 
-    <section class="content-header">
+  <?php
+  
+    $sql = "SELECT * FROM fake_news INNER JOIN user ON fake_news.id_user=user.id_user WHERE id_fakepost='$_GET[id]'";
+    $result = $conn->query($sql);
+    if($result->num_rows > 0) 
+    {
+      while($row = $result->fetch_assoc()) 
+      {
+        //$image = $row['image'];
+        //<img src = $image  class="default-image"/>
+  ?>
+
+    <section id="candidates" class="content-header">
       <div class="container">
-        <div class="row latest-job margin-top-50 margin-bottom-20">
-          <h1 class="text-center margin-bottom-20">Sign Up</h1>
-         <!-- <div class="col-md-6 latest-job ">
-            <div class="small-box bg-yellow padding-5">
-              <div class="inner">
-                <h3 class="text-center">User Registration</h3>
-              </div>
-              <a href="register-candidates.php" class="small-box-footer">
-                Register <i class="fa fa-arrow-circle-right"></i>
-              </a>
+        <div class="row">          
+          <div class="col-md-12 bg-white padding-2">
+            <div class="pull-left">
+              <h2><b><i><?php echo $row['title']; ?></i></b></h2>
             </div>
-          </div> -->
-          <div class="col-md-12 latest-job ">
-            <div class="small-box bg-red padding-5">
-              <div class="inner">
-                <h3 class="text-center">User Registration</h3>
-              </div>
-              <a href="register-user.php" class="small-box-footer">
-                Register <i class="fa fa-arrow-circle-right"></i>
-              </a>
+            
+            <div class="clearfix"></div>
+            <hr>
+            <div>
+              <p><span class="margin-right-10"><i class="fa fa-location-arrow text-green"></i> <?php echo $row['city']; ?></span> <i class="fa fa-calendar text-green"></i> <?php echo date("d-M-Y", strtotime($row['createdat'])); ?></p>              
             </div>
+             <div>
+                <?php echo stripcslashes($row['description']); ?>
+             </div>
+                <div class="col-md-3">
+                    <img src="<?php echo $row['image'] ;?>"  class="image-job" width="300" height="300" alt="image" />
+                </div>
           </div>
+          
         </div>
       </div>
     </section>
 
+    <?php
+  
+  $sql = "SELECT * FROM user WHERE id_fakepost='$_GET[id]' AND appr_status='1'";
+    ?>
+        <!--for admin description-->
+    <section id="candidates" class="content-header">
+      <div class="container">
+        <div class="row">          
+          <div class="col-md-12 bg-white padding-2">
+           <div class="pull-middel">
+               <h2><b><i>Admin description on fake post</i></b></h2>
+            </div>
+             <div class="col-mid-3">
+                <?php echo stripcslashes($row['admin_clarification']); ?>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <?php 
+      
+    
+    ?>
+
+    <?php 
+      }
+    }
+    ?>
     
 
   </div>
@@ -141,5 +159,8 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="js/adminlte.min.js"></script>
+
+
+
 </body>
 </html>

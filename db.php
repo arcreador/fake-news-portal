@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "avinash";
-$dbname = "jobportal";
+$dbname = "fakenews";
 
 //Create New Database Connection
 $conn = new mysqli($servername, $username, $password, $dbname);
